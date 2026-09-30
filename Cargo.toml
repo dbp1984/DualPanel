@@ -1,0 +1,23 @@
+[package]
+name = "dbp"
+version = "0.2.0"
+edition = "2021"
+authors = ["David Bautista Prados"]
+description = "DBP [Dual Browser Panels] — ultra-fast Norton Commander style file manager in Rust"
+license = "All rights reserved"
+
+[dependencies]
+anyhow = "1"
+crossterm = "0.29"
+ratatui = "0.29"
+dirs = "6"
+zip = { version = "2.4", default-features = false, features = ["deflate"] }
+walkdir = "2.5"
+regex = "1.11"
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+opt-level = 3
+panic = "abort"
+strip = true
